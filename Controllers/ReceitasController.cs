@@ -20,9 +20,17 @@ namespace ReceitasMvc.Controllers
         }
 
         // GET: Receitas
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
-            return View(await _context.Receita.ToListAsync());
+            var receitas = from r in _context.Receita
+                           select r;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                receitas = receitas.Where(s => s.Titulo.Contains(searchString));
+            }
+            return View(await receitas.ToListAsync());
+           // return View(await _context.Receita.ToListAsync());
         }
 
         // GET: Receitas/Details/5
