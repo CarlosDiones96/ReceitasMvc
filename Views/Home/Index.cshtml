@@ -2,7 +2,17 @@
     ViewData["Title"] = "Página Inicial";
 }
 
-<div class="text-center">
+@*<div class="text-center">
     <h1 class="display-4">Seja bem-vindo</h1>
     <a asp-controller="Receitas" asp-action="Index">Ir para receitas</a>
+</div>*@
+
+
+<div class="jumbotron">
+    <div class="container">
+        <h1 class="display-2">Receitas Web</h1>
+        <p class="lead">Seja bem-vindo ao seu site de receitas!</p>
+        <hr/>
+        <a class="btn btn-outline-info" asp-controller="Receitas" asp-action="Index">Clique aqui para ter acesso à lista de receitas.</a>
+    </div>
 </div>
