@@ -4,47 +4,55 @@
     ViewData["Title"] = "Receitas";
 }
 
-<h1>Lista de receitas</h1>
+<h1 class="display-3 text-uppercase">Lista de receitas</h1>
 
 <p>
-    <a asp-action="Create">Criar nova receita</a>
+    <a asp-action="Create" class="btn btn-primary">Criar nova receita</a>
 </p>
 
 <form asp-controller="Receitas" asp-action="Index" method="get">
     <p>
         Título: <input type="text" name="SearchString" />
-        <input type="submit" value="Filtrar"/>
+        <input type="submit" value="Filtrar" />
     </p>
 
 </form>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Titulo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Preparo)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Titulo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Preparo)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Detalhes</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Deletar</a>
-            </td>
-        </tr>
+
+@*@Html.DisplayNameFor(model => model.Titulo)
+
+@Html.DisplayNameFor(model => model.Preparo)*@
+
+@foreach (var item in Model)
+{
+
+    <div class="row mt-3">
+        <div class="col-sm-8 card border-dark"> 
+            <div class="card-body">
+                <div class="card-title h1 border-bottom">
+                    @Html.DisplayFor(modelItem => item.Titulo)
+                </div>
+                <div class="card-text">
+                    @Html.DisplayFor(modelItem => item.Preparo)
+                </div>
+                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-info mr-1">Editar</a>
+                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-success mr-1">Detalhes</a>
+                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger mr-1">Deletar</a>
+            </div>
+        </div>
+            
+    </div>
+
+    @*<td>
+            @Html.DisplayFor(modelItem => item.Titulo)
+        </td>
+        <td class="">
+            @Html.DisplayFor(modelItem => item.Preparo)
+        </td>
+        <td>
+            <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+            <a asp-action="Details" asp-route-id="@item.Id">Detalhes</a> |
+            <a asp-action="Delete" asp-route-id="@item.Id">Deletar</a>
+        </td>*@
+
 }
-    </tbody>
-</table>
