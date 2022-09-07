@@ -4,7 +4,7 @@
     ViewData["Title"] = "Receitas";
 }
 
-<h1 class="display-3 text-uppercase">Lista de receitas</h1>
+<h1 class="display-3">Lista de receitas</h1>
 
 <p>
     <a asp-action="Create" class="btn btn-primary">Criar nova receita</a>
@@ -18,10 +18,6 @@
 
 </form>
 
-
-@*@Html.DisplayNameFor(model => model.Titulo)
-
-@Html.DisplayNameFor(model => model.Preparo)*@
 
 @foreach (var item in Model)
 {
@@ -43,16 +39,6 @@
             
     </div>
 
-    @*<td>
-            @Html.DisplayFor(modelItem => item.Titulo)
-        </td>
-        <td class="">
-            @Html.DisplayFor(modelItem => item.Preparo)
-        </td>
-        <td>
-            <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
-            <a asp-action="Details" asp-route-id="@item.Id">Detalhes</a> |
-            <a asp-action="Delete" asp-route-id="@item.Id">Deletar</a>
-        </td>*@
+  
 
 }
